@@ -1,0 +1,10 @@
+pdf-engine: xelatex
+variables:
+  mainfont: Lato
+  monofont: Fira Code
+  geometry: margin=1.5cm
+  # geometry:
+  #   - paperwidth=210mm
+  #   - paperheight=1000mm
+  #   - margin=1.5cm
+  pagestyle: empty
