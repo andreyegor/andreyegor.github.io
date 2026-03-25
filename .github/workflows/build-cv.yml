@@ -1,0 +1,73 @@
+name: Build CV
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install pandoc and LaTeX
+      run: sudo apt-get update && sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-extra
+
+    - name: Create output directory
+      run: mkdir -p output
+
+    - name: Build PDF CV using config
+      run: pandoc src/cv-ru.md -o output/cv-egor-andreev.pdf --pdf-engine=xelatex -V mainfont="DejaVu Serif" -V monofont="DejaVu Sans Mono" -V geometry:margin=1.5cm
+
+    - name: Build HTML CV content
+      run: pandoc src/cv-ru.md -t html -o output/cv-content.html
+
+    - name: Create HTML with download button
+      run: |
+        python3 << 'EOF'
+        with open('src/cv-ru-template.html', 'r') as f:
+            template = f.read()
+        with open('output/cv-content.html', 'r') as f:
+            content = f.read()
+        result = template.replace('<!--CV_CONTENT_PLACEHOLDER-->', content)
+        with open('output/index.html', 'w') as f:
+            f.write(result)
+        EOF
+        rm output/cv-content.html
+
+    - name: Copy styles.css to output
+      run: cp src/styles.css output/styles.css
+
+    - name: Create root redirect
+      run: |
+        mkdir -p _pages
+        cat > _pages/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta http-equiv="refresh" content="0; url=cv-ru/" />
+        </head>
+        <body>
+            <p>Redirecting to <a href="cv-ru/">CV</a></p>
+        </body>
+        </html>
+        EOF
+        # Copy CV files to _pages/cv-ru
+        mkdir -p _pages/cv-ru
+        cp output/* _pages/cv-ru/
+
+    - name: Verify structure
+      run: ls -lR _pages/
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_pages
+        force_orphan: true

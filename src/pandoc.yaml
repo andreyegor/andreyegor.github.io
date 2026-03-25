@@ -1,0 +1,7 @@
+pdf-engine: xelatex
+css: styles.css
+variables:
+  mainfont: DejaVu Serif
+  monofont: DejaVu Sans Mono
+  geometry: margin=1.5cm
+  pagestyle: empty
