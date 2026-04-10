@@ -53,9 +53,6 @@ jobs:
         <head>
             <meta http-equiv="refresh" content="0; url=cv-ru/" />
         </head>
-        <body>
-            <p>Redirecting to <a href="cv-ru/">CV</a></p>
-        </body>
         </html>
         EOF
         # Copy CV files to _pages/cv-ru
