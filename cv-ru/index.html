@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Егор Андреев - резюме</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .download-button {
+            position: fixed;
+            left: 45px;
+            top: 45px;
+            transform: translateY(-50%);
+            padding: 12px 24px;
+            background-color: #51a507;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            z-index: 1000;
+            white-space: nowrap;
+        }
+
+        .download-button:hover {
+            background-color: #3d7a05;
+        }
+    </style>
+    <!--<script id="cookieyes" type="text/javascript"
+        src="https://cdn-cookieyes.com/client_data/2200819aeda0ee017583425a12b2f71f/script.js"></script-->
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        gtag('js', new Date());
+        gtag('config', 'G-RJBME13M6S');
+    </script>
+</head>
+
+<body>
+    <a href="cv-egor-andreev.pdf" class="download-button" download>Скачать резюме (PDF)</a>
+    <div class="cv-container">
+        <h1 id="андреев-егор">Андреев Егор</h1>
+<h2 id="бэкенд-разработчик">(Бэкенд) разработчик</h2>
+<p>Томск, Россия | <a
+href="https://t.me/andreyegor1">t.me/andreyegor1</a> | <a
+href="https://github.com/andreyegor">github.com/andreyegor</a> | <a
+href="mailto:andreevegor10000@gmail.com"
+class="email">andreevegor10000@gmail.com</a></p>
+<h2 id="опыт-работы">Опыт работы</h2>
+<h3
+id="бэкенд-разработчик-для-томского-политехнического-университета">Бэкенд
+разработчик для Томского Политехнического Университета</h3>
+<p><em>(Июль 2025 - Сентябрь 2025)</em></p>
+<p><strong>Стек:</strong> Scala | Cats Effect | Http4s | Doobie |
+Postgresql | Docker</p>
+<ul>
+<li>Разработал бэкенд ed-tech сервиса тпу по поиску студенческих
+проектов на Scala Typelevel.</li>
+<li>Настроил аутентификацию и авторизацию с помощью университетского
+Oauth2 api.</li>
+<li>Спроектрировал и реализовал логику: модерации проектов, подачи
+заявок на роли в них, CRUD для данных пользователя.</li>
+<li>Настроил простой деплой используя docker, nginx и github actions.
+Развернул beszel для минимального контроля работы сервиса.</li>
+<li>Занимался поддержкой сервиса некоторое время после запуска.</li>
+<li>В первый сезон (семестр) больше 100 студентов подали заявку на
+проект через наш сервис.</li>
+<li><strong>Сейчас мы продолжаем активно развивать сервис, но уже не на
+коммерческой основе.</strong></li>
+</ul>
+<h2 id="образование"><strong>Образование</strong></h2>
+<p><strong>Бакалавриат Програмной Инженерии</strong> Томский
+политехнический университет | 2024 - 2028, 2 курс</p>
+<h2 id="навыки"><strong>Навыки</strong></h2>
+<ul>
+<li>Scala (typelevel экосистема)</li>
+<li>git</li>
+<li>bash</li>
+<li>sql</li>
+<li>python</li>
+<li>nixos</li>
+<li>Английский язык B1-B2</li>
+</ul>
+<h2 id="проекты"><strong>Проекты</strong></h2>
+<h3 id="fit-quest"><strong>Fit quest</strong></h3>
+<p><em>(весна 2025)</em></p>
+<p><strong>Стек:</strong> Scala | Cats Effect | Http4s | Doobie |
+Postgresql | Docker</p>
+<p>Небольшой сервис мониторинга здоровья, интегрированный с Google
+Health. Это был мой первый опыт с typelevel бэкендом. Его код есть в
+открытом доступе: <a
+href="https://github.com/andreyegor/fit-quest">github.com/andreyegor/fit-quest</a>.</p>
+<ul>
+<li>Реализовал REST API для работы с пользовательскими данными и
+тренировками.</li>
+<li>Спроектировал и реализовал систему аутентификации на access/refresh
+токенах с использованием http4s middleware.</li>
+<li>Организовал интеграцию с Google Health Connect: ручная синхронизация
+и фоновое обновление данных по расписанию.</li>
+<li>Использовал функциональный подход (tagless final) для разделения
+бизнес-логики и эффектов.</li>
+<li>Реализовал работу с PostgreSQL через Doobie (включая транзакции и
+маппинг доменных моделей).</li>
+<li>Развернул это всё на сервере в Docker через Nginx</li>
+</ul>
+<p>Также мной было написано небольшое приложение для интеграции с Google
+Health Connect, можно залогиниться и синхронизировать вручную,
+автосинхронизация проходит два раза в сутки.</p>
+<h3 id="ege-parser"><strong>Ege parser</strong></h3>
+<p><em>(лето 2022)</em></p>
+<p><strong>Стек:</strong> Python | Selenium | Numpy | Pytesseract |
+Discord</p>
+<p>Сервис для автоматического получения результатов ЕГЭ с сайта
+checkege.rustest.ru с уведомлениями об изменениях. Его код есть в
+открытом доступе: <a
+href="https://github.com/andreyegor/ege-parser">github.com/andreyegor/ege-parser</a>.</p>
+<ul>
+<li>Реализовал автоматизированный вход на сайт с решением капчи.</li>
+<li>Настроил извлечение данных о результатах пользователя.</li>
+<li>Реализовал механизм периодической проверки обновлений с уведомлением
+через Discord.</li>
+</ul>
+<h2 id="хакатоны">Хакатоны</h2>
+<h3 id="хакатон-sys-pro-нгу"><strong>Хакатон sys-pro нгу</strong></h3>
+<p><em>(зима 2024)</em></p>
+<p><strong>Стек:</strong> Python | Flask | Jinja</p>
+<p>За время работы на хакатоне (два дня) была написана тестирующая
+система для алгоритмических задач. На этом проекте я занимался фронтенд
+разработкой. Его код есть в открытом доступе: <a
+href="https://github.com/ring-ideal/trunner/tree/web">github.com/ring-ideal/trunner/tree/web</a></p>
+
+    </div>
+</body>
+
+</html>
